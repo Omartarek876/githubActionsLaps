@@ -1,16 +1,14 @@
-function greet(name = 'world') {
-  return `Hello, ${name}!`;
-}
 
-function main() {
-  const name = process.argv.slice(2).join(' ') || 'world';
-  console.log(greet(name));
-}
+function greet(name) {
+    if (!name || !name.trim()) {
+        return "Hello, Guest!";
+    }
 
-module.exports = {
-  greet,
-};
+    return `Hello, ${name.trim()}!`;
+}
 
 if (require.main === module) {
-  main();
+    console.log(greet("omar tarek ibrahim"));
 }
+
+module.exports = { greet };
