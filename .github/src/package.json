@@ -1,9 +1,10 @@
 {
-  "name": "github-actions-laps",
+  "name": "greet-app",
   "version": "1.0.0",
-  "description": "Simple greet app used in the GitHub Actions lab",
+  "description": "A simple greeting app used for GitHub Actions automation testing",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "bash ./test.sh"
   },
   "license": "MIT"

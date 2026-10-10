@@ -1,13 +1,27 @@
 #!/usr/bin/env bash
 set -e
 
-node <<'NODE'
-const assert = require('node:assert/strict');
-const { greet } = require('./app.js');
+expected_default="Hello, world!"
+expected_alice="Hello, Alice!"
+expected_omar="Hello, Omar!"
 
-assert.equal(greet(), 'Hello, world!');
-assert.equal(greet('Alice'), 'Hello, Alice!');
-assert.equal(greet('Omar'), 'Hello, Omar!');
+actual_default=$(node ./app.js)
+actual_alice=$(node ./app.js Alice)
+actual_omar=$(node ./app.js Omar)
 
-console.log('All tests passed');
-NODE
+if [ "$actual_default" != "$expected_default" ]; then
+  echo "Default greeting failed: expected '$expected_default', got '$actual_default'"
+  exit 1
+fi
+
+if [ "$actual_alice" != "$expected_alice" ]; then
+  echo "Alice greeting failed: expected '$expected_alice', got '$actual_alice'"
+  exit 1
+fi
+
+if [ "$actual_omar" != "$expected_omar" ]; then
+  echo "Omar greeting failed: expected '$expected_omar', got '$actual_omar'"
+  exit 1
+fi
+
+echo "All tests passed"
