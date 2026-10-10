@@ -1,20 +1,19 @@
-name: first workflow 
+# name: first workflow 
+# on: 
+#   push: 
+#      branches:
+#        - main 
 
-on: 
-  push: 
-     branches:
-       - main 
+# jobs:
+#   example-jop:
+#      runs-on: ubuntu-latest
 
-jobs:
-  example-jop:
-     runs-on: ubuntu-latest
+#      steps:
+#        - name: print a welcome message 
+#          run: echo "welcome to our first actions workflow"
 
-     steps:
-       - name: print a welcome message 
-         run: echo "welcome to our first actions workflow"
+#        - name: checkout repo
+#          uses: actions/checkout@v7.0.1
 
-       - name: checkout repo
-         uses: actions/checkout@v7.0.1
-
-       - name: list repo files
-         run: ls -la 
+#        - name: list repo files
+#          run: ls -la 
