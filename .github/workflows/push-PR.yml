@@ -1,3 +1,4 @@
+
 name: Push and PR
 
 on:
@@ -12,15 +13,22 @@ on:
     branches:
       - main
       - "release/**"
-
+    paths:
+      - "src/**"
 
 jobs:
-    test:
-        runs-on: ubuntu-latest
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v7.0.1
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7.0.1
 
-            - name: Run tests
-              run : npm test
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
