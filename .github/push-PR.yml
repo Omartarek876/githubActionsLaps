@@ -5,14 +5,22 @@ on:
     branches:
       - main
       - "release/**"
+    path:
+        - "src/**"
+
   pull_request:
     branches:
       - main
+      - "release/**"
+
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    test:
+        runs-on: ubuntu-latest
 
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v7.0.1
+
+            - name: Run tests
+              run : npm test

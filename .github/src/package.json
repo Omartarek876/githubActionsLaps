@@ -1,0 +1,10 @@
+{
+  "name": "github-actions-laps",
+  "version": "1.0.0",
+  "description": "Simple greet app used in the GitHub Actions lab",
+  "main": "app.js",
+  "scripts": {
+    "test": "bash ./test.sh"
+  },
+  "license": "MIT"
+}
